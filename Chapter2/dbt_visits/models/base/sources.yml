@@ -6,6 +6,14 @@ sources:
     tables:
     - name: comprehensive_encounter_map
     - name: comprehensive_encounter
+      columns: 
+        - name: id
+          tests:
+            - unique
+        - name: type
+          tests:
+            - accepted_values:
+                values: ['EMERGENCY','UNKNOWN','POST_ACUTE_CARE','INPATIENT','NULL','BEHAVIORAL_HEALTH']
     - name: facility
     - name: patient_diagnosis
     - name: PatientDisability

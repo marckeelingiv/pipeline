@@ -26,6 +26,8 @@
     - patient attributes model (v1 & v2)
     - visits joined (v1 & v2)
 2. dbt tests
+    - what are they
+    - quick demo
 
 
 ## Chapter 3 (Orchestration)
