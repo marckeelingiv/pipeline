@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password
+      MYSQL_DATABASE: visit
+      MYSQL_USER: your_username
+      MYSQL_PASSWORD: your_password
+    volumes:
+      - ./mysql_configs/my.cnf:/etc/mysql/conf.d/my.cnf
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:23.9.2.56 #Stable
+    ports:
+      - 8123:8123
+      - 9000:9000
