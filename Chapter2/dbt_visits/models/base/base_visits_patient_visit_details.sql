@@ -1,0 +1,21 @@
+SELECT 
+    discharge_disposition_raw,
+    note,
+    presumed_discharge_date,
+    last_seen,
+    location_label,
+    prior_patient_location,
+    admit_source_type,
+    presumed_discharge_reason,
+    attending_physician,
+    added_by,
+    location_raw,
+    chief_complaint,
+    note_privacy_level,
+    location,
+    discharge_diagnosis,
+    id,
+    `_airbyte_ab_id`,
+    `_airbyte_emitted_at`,
+    `_airbyte_normalized_at`, `_airbyte_patient_visit_details_hashid`
+FROM {{ source('visits', 'patient_visit_details') }}

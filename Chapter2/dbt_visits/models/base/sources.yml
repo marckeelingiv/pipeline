@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: visits
+    schema: mysql_extracts
+    tables:
+    - name: comprehensive_encounter_map
+    - name: comprehensive_encounter
+    - name: facility
+    - name: patient_diagnosis
+    - name: PatientDisability
+    - name: PatientEthnicity
+    - name: PatientLanguage
+    - name: PatientMarital
+    - name: PatientRace
+    - name: patient_visit_details
+    - name: patient_visit_pds_care_provider
+    - name: patient_visit
