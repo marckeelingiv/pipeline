@@ -32,6 +32,8 @@
 
 ## Chapter 3 (Orchestration)
 1. Connect Airbyte to Dagster
+    - Create an airbyte resource (https://docs.dagster.io/concepts/resources)
+    - `pip install -e ".[dev]"` `dagster dev`
 2. Connect DBT to Dagster
 3. Set up report delivery schedules
 4. Set up Alerting
