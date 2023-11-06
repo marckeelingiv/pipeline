@@ -118,27 +118,27 @@ DataFrame.from_records(patient_visit_details_list).to_sql(
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientLanguage_list).to_sql(
-    'PatientLanguage',
+    'patient_language',
     con=engine, 
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientDisability_list).to_sql(
-    'PatientDisability',
+    'patient_disability',
     con=engine, 
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientMarital_list).to_sql(
-    'PatientMarital',
+    'patient_marital',
     con=engine, 
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientRace_list).to_sql(
-    'PatientRace',
+    'patient_race',
     con=engine, 
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientEthnicity_list).to_sql(
-    'PatientEthnicity',
+    'patient_ethnicity',
     con=engine, 
     if_exists='replace',
     index=False)
