@@ -1,22 +1,29 @@
 # pipeline
 
-## Introduction
+# Introduction
 - What is Data Engineering?
 - Why is it needed?
 - Two types of data engineers (A & B)
 
-## Chapter 1 (Data Generation and Transfer)
-1. Turn on MySQL, ClickHouse, Airbyte (start generating data)
-    - airbyte on 8000
-2. Show Relational Diagram
-3. Show how the data is generated
-4. Show data in source
-5. Create connection from Mysql to ClickHouse through Airbyte
-    1. Enable binary logging on mysql
-    1. describe aht airbyte is
-    2. describe what ClickHouse is 
+# Chapter 1 (Data Generation and Transfer)
+1. Set up Environment 
+    - python -m venv ./env
+    - .\env\Scripts\Activate.ps1
+    - python -m pip install -r .\requirements.txt
+2. Turn on MySQL (3306), ClickHouse (8123), Airbyte (8000) (start generating data)
+    - python .\Chapter1\data_gen_and_seed.py (then wait for 5 min)
+    - docker compose -f .\DockerCompose.yaml up -d
+    - docker compose -f .\airbyte\DockerCompose_airbyte.yaml up -d
+3. Show Relational Diagram
+4. Show how the data is generated
+5. Show data in source
+6. Create connection from Mysql to ClickHouse through Airbyte
+    1. Talk About Enable binary logging on mysql
+    2. describe what airbyte is
+    2. describe what ClickHouse is
+    Certainly! ClickHouse is a columnar database management system that is optimized for processing and analyzing large volumes of data in a highly efficient manner. It is designed to handle high-speed data ingestion and complex analytical queries.  
 
-## Chapter 2 (Organizing the Data)
+# Chapter 2 (Organizing the Data)
 1. dbt models
     - dbt --version
     - dbt init dbt_visits
@@ -30,7 +37,7 @@
     - quick demo
 
 
-## Chapter 3 (Orchestration)
+# Chapter 3 (Orchestration)
 1. Connect Airbyte to Dagster
     - Create an airbyte resource (https://docs.dagster.io/concepts/resources)
     - `pip install -e ".[dev]"` `dagster dev`
@@ -39,11 +46,12 @@
 4. Set up Alerting
 
 
-## Things not shown here
+# Things not shown here
 - Working with people you have no control over to communicate the vision and convince to give you the permissions needed to execute 
 - Working with Data Science to figure out what data is important to them
 - How to Secure your connections and data
 - How to deploy to production
 
-## possible changes/improvements
+# Possible Changes/Improvements
 - Swap out ClickHouse for DuckDB
+- improve dates in fake data
