@@ -7,7 +7,8 @@ from dagster import (
     Definitions,
     define_asset_job,
     AssetExecutionContext,
-    AssetKey
+    AssetKey,
+    AssetSelection
 )
 from dagster_dbt import dbt_assets, DbtCliResource, build_schedule_from_dbt_selection, DagsterDbtTranslator
 
@@ -23,16 +24,10 @@ airbyte_resource = AirbyteResource(
 )
 
 # Use the airbyte_instance resource we define
-airbyte_assets = load_assets_from_airbyte_instance(airbyte_resource)
-
-# materialize all assets
-run_everything_job = define_asset_job("run_everything", selection="*")
-
-airbyte_schedule = ScheduleDefinition(
-    job=run_everything_job,
-    cron_schedule="@daily"
-)
-
+airbyte_assets = load_assets_from_airbyte_instance(
+    airbyte=airbyte_resource,
+    key_prefix=['visits']
+    )
 
 
 ##############################
@@ -67,6 +62,14 @@ daily_dbt_assets_schedule = build_schedule_from_dbt_selection(
     cron_schedule="@daily",
 )
 
+# materialize all assets
+run_everything_job = define_asset_job("run_everything", selection=AssetSelection.all())
+
+everything_schedule = ScheduleDefinition(
+    job=run_everything_job,
+    cron_schedule="@daily"
+)
+
 all_assets = load_assets_from_modules([airbyte_assets])
 
 defs = Definitions(
@@ -78,7 +81,7 @@ defs = Definitions(
         run_everything_job
     ],
     schedules=[
-        airbyte_schedule,
+        everything_schedule,
         daily_dbt_assets_schedule
     ],
     resources={"dbt": dbt_resource,}
