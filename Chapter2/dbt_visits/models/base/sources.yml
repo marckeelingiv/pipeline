@@ -16,11 +16,11 @@ sources:
                 values: ['EMERGENCY','UNKNOWN','POST_ACUTE_CARE','INPATIENT','NULL','BEHAVIORAL_HEALTH']
     - name: facility
     - name: patient_diagnosis
-    - name: PatientDisability
-    - name: PatientEthnicity
-    - name: PatientLanguage
-    - name: PatientMarital
-    - name: PatientRace
+    - name: patient_disability
+    - name: patient_ethnicity
+    - name: patient_language
+    - name: patient_marital
+    - name: patient_race
     - name: patient_visit_details
     - name: patient_visit_pds_care_provider
     - name: patient_visit

@@ -7,9 +7,9 @@ SELECT
     facility_id,
     id,
     created_by,
-    data_source_id,
+    data_source_id
     `_airbyte_ab_id`,
     `_airbyte_emitted_at`,
     `_airbyte_normalized_at`,
-    `_airbyte_PatientRace_hashid`
-FROM {{ source('visits', 'PatientRace') }}
+    `_airbyte_patient_race_hashid`
+FROM {{ source('visits', 'patient_race') }}

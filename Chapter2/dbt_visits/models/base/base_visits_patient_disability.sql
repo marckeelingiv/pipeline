@@ -11,5 +11,5 @@ SELECT
     `_airbyte_ab_id`,
     `_airbyte_emitted_at`,
     `_airbyte_normalized_at`,
-    `_airbyte_PatientDisability_hashid`
-FROM {{ source('visits', 'PatientDisability') }}
+    `_airbyte_patient_disability_hashid`
+FROM {{ source('visits', 'patient_disability') }}

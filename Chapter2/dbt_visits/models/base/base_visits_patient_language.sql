@@ -11,5 +11,5 @@ SELECT
     `_airbyte_ab_id`,
     `_airbyte_emitted_at`,
     `_airbyte_normalized_at`,
-    `_airbyte_PatientLanguage_hashid`
-FROM {{ source('visits', 'PatientLanguage') }}
+    `_airbyte_patient_language_hashid`
+FROM {{ source('visits', 'patient_language') }}
