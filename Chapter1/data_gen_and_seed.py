@@ -1,14 +1,14 @@
 from DataGenClasses import (
-    FacilityDataClass, ComprehensiveEncounterDataClass, 
-    PatientVisitDataClass, ComprehensiveEncounterMapDataClass, 
-    PatientDiagnosisDataClass, PatientVisitPDSCareProviderDataClass, 
-    PatientVisitDetailsDataClass, PatientLanguageDataClass, 
-    PatientDisabilityDataClass, PatientMaritalDataClass, 
+    FacilityDataClass, ComprehensiveEncounterDataClass,
+    PatientVisitDataClass, ComprehensiveEncounterMapDataClass,
+    PatientDiagnosisDataClass, PatientVisitPDSCareProviderDataClass,
+    PatientVisitDetailsDataClass, PatientLanguageDataClass,
+    PatientDisabilityDataClass, PatientMaritalDataClass,
     PatientRaceDataClass, PatientEthnicityDataClass
     )
 from mysql_connection import engine
 from pandas import DataFrame
-  
+
 facility_list = []
 comprehensive_encounter_list = []
 patient_visit_list = []
@@ -35,12 +35,12 @@ for facility_id_num in range(20):
         comprehensive_encounter_list.append(comprehensive_encounter.__dict__)
 
         patient_visit = PatientVisitDataClass(
-            patient_id=comprehensive_encounter.patient_id, 
+            patient_id=comprehensive_encounter.patient_id,
             facility_id=facility_id_num)
         patient_visit_list.append(patient_visit.__dict__)
 
         comprehensive_encounter_map = ComprehensiveEncounterMapDataClass(
-            comprehensive_encounter_id=comprehensive_encounter.id, 
+            comprehensive_encounter_id=comprehensive_encounter.id,
             patient_visit_id=patient_visit.id)
         comprehensive_encounter_map_list.append(comprehensive_encounter_map.__dict__)
 
@@ -84,61 +84,61 @@ for facility_id_num in range(20):
 # Upload to MySQL
 DataFrame.from_records(facility_list).to_sql(
     'facility',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(comprehensive_encounter_list).to_sql(
     'comprehensive_encounter',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(patient_visit_list).to_sql(
     'patient_visit',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(comprehensive_encounter_map_list).to_sql(
     'comprehensive_encounter_map',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(patient_diagnosis_list).to_sql(
     'patient_diagnosis',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(patient_visit_pds_care_provider_list).to_sql(
     'patient_visit_pds_care_provider',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(patient_visit_details_list).to_sql(
     'patient_visit_details',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientLanguage_list).to_sql(
     'patient_language',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientDisability_list).to_sql(
     'patient_disability',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientMarital_list).to_sql(
     'patient_marital',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientRace_list).to_sql(
     'patient_race',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
 DataFrame.from_records(PatientEthnicity_list).to_sql(
     'patient_ethnicity',
-    con=engine, 
+    con=engine,
     if_exists='replace',
     index=False)
