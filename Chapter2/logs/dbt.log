@@ -1,0 +1,27 @@
+
+
+============================== 2023-10-29 21:02:26.206393 | f6952ec6-4688-45c4-acc2-132482a7e24d ==============================
+[0m21:02:26.206393 [info ] [MainThread]: Running with dbt=1.4.9
+[0m21:02:26.219791 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\keelim\\.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'project_name': 'dbt_visits', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m21:02:26.220125 [debug] [MainThread]: Tracking: tracking
+[0m21:02:26.238263 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261C0B5B4C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261BD18FC70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261BD18FDC0>]}
+[0m21:02:26.241278 [debug] [MainThread]: Starter project path: C:\Users\keelim\dev\sandbox\pipeline\env\lib\site-packages\dbt\include\starter_project
+[0m21:02:32.325478 [info ] [MainThread]: No sample profile found for clickhouse.
+[0m21:02:32.325478 [info ] [MainThread]: 
+Your new dbt project "dbt_visits" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:02:32.335953 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261C0B5B4C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261BD18C130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261BD18DBD0>]}
+[0m21:02:32.335953 [debug] [MainThread]: Flushing usage events

@@ -1,0 +1,41 @@
+# Read about this file here: https://docs.dagster.io/deployment/dagster-instance
+telemetry:
+  enabled: false
+
+# this config manually sets the directory (`base_dir`) for Sqlite to store data in:
+storage:
+  sqlite:
+    base_dir: ./history
+
+# Set the directory that the LocalComputeLogManager writes
+# stdout & stderr logs to
+
+# You could directly set the `base_dir` key
+compute_logs:
+  module: dagster.core.storage.local_compute_log_manager
+  class: LocalComputeLogManager
+  config:
+    base_dir: ./compute_logs
+
+
+# Configures how long Dagster keeps sensor / schedule tick data
+retention:
+  schedule:
+    purge_after_days: 90 # sets retention policy for schedule ticks of all types
+  sensor:
+    purge_after_days:
+      skipped: 7
+      failure: 30
+      success: -1 # keep success ticks indefinitely
+
+sensors:
+  use_threads: true
+  num_workers: 2
+
+schedules:
+  use_threads: true
+  num_workers: 2
+
+run_launcher:
+  module: dagster.core.launcher
+  class: DefaultRunLauncher

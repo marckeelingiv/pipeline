@@ -1,0 +1,21 @@
+dbt_visits: # name of your project
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      host: 127.0.0.1
+      port: 8123
+      schema: dbt_dev
+      user: default
+      use_lw_deletes: True
+      threads: 3
+      send_receive_timeout: 30000
+    stage:
+      type: clickhouse
+      host: 127.0.0.1
+      port: 8123
+      schema: dbt_stg
+      user: default
+      use_lw_deletes: True
+      threads: 3
+      send_receive_timeout: 30000

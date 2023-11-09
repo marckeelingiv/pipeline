@@ -1,0 +1,6 @@
+dagster==1.5.4
+dagster-airbyte
+
+[dev]
+dagster-webserver
+pytest
