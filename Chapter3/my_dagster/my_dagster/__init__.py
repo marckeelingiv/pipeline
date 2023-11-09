@@ -1,8 +1,8 @@
 from typing import Any, Mapping
 from pathlib import Path
-from dagster import Definitions, load_assets_from_modules
-from dagster_airbyte import load_assets_from_airbyte_instance, AirbyteResource
 from dagster import (
+    Definitions,
+    load_assets_from_modules,
     ScheduleDefinition,
     Definitions,
     define_asset_job,
@@ -10,11 +10,12 @@ from dagster import (
     AssetKey,
     AssetSelection
 )
+from dagster_airbyte import load_assets_from_airbyte_instance, AirbyteResource
 from dagster_dbt import dbt_assets, DbtCliResource, build_schedule_from_dbt_selection, DagsterDbtTranslator
 
-##############################
+##################################
 #### ===>>>   AirByte   <<<=== ###
-##############################
+##################################
 
 airbyte_resource = AirbyteResource(
     host="localhost",
@@ -43,11 +44,11 @@ dbt_resource = DbtCliResource(
 dbt_parse_invocation = dbt_resource.cli(["parse"]).wait()
 # dbt_manifest_path = dbt_parse_invocation.target_path.joinpath("manifest.json")
 
-class CustomDagsterDbtTranslator(DagsterDbtTranslator):
-    @classmethod
-    def get_asset_key(cls, dbt_resource_props: Mapping[str, Any]) -> AssetKey:
-        asset_key = super().get_asset_key(dbt_resource_props)
-        return asset_key
+# class CustomDagsterDbtTranslator(DagsterDbtTranslator):
+#     @classmethod
+#     def get_asset_key(cls, dbt_resource_props: Mapping[str, Any]) -> AssetKey:
+#         asset_key = super().get_asset_key(dbt_resource_props)
+#         return asset_key
 
 @dbt_assets(
     manifest=Path(DBT_PROJECT_DIR)/'target'/'manifest.json',
