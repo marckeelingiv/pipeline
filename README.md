@@ -21,26 +21,32 @@
     1. Talk About Enable binary logging on mysql
     2. describe what airbyte is
     2. describe what ClickHouse is
-    Certainly! ClickHouse is a columnar database management system that is optimized for processing and analyzing large volumes of data in a highly efficient manner. It is designed to handle high-speed data ingestion and complex analytical queries.  
 
 # Chapter 2 (Organizing the Data)
-1. dbt models
+1. create the dbt repo
     - dbt --version
     - dbt init dbt_visits
-    - create models
-    - add profiles.yaml
+    - create sources.yml file
+    - create profiles.yaml file
     - dbt debug
+    - create base and intermediate folders
+2. dbt models
+    - create models
+    - show documentation
     - patient attributes model (v1 & v2)
     - visits joined (v1 & v2)
-2. dbt tests
+3. dbt tests
     - what are they
     - quick demo
 
 
 # Chapter 3 (Orchestration)
+1. Create Dagster environment
+    - dagster project scaffold-code-location --name my_dagster
 1. Connect Airbyte to Dagster
     - Create an airbyte resource (https://docs.dagster.io/concepts/resources)
     - `pip install -e ".[dev]"` `dagster dev`
+    - run dagster `dagster dev`
 2. Connect DBT to Dagster
 3. Set up report delivery schedules
 4. Set up Alerting
