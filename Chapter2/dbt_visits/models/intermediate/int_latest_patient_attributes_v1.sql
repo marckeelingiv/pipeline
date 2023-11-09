@@ -1,44 +1,49 @@
 WITH 
 p_dis AS (
-SELECT * FROM (SELECT
-    patient_id,
-    code,
-    ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
-FROM {{ ref('base_visits_patient_disability') }}
-)
-WHERE row_num = 1
+    SELECT * FROM (
+        SELECT
+            patient_id,
+            code,
+            ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
+        FROM {{ ref('base_visits_patient_disability') }}
+    )
+    WHERE row_num = 1
 ), 
 p_eth AS (
-SELECT * FROM (SELECT
-    patient_id,
-    code,
-    ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
-FROM {{ ref('base_visits_patient_ethnicity') }}
-) WHERE row_num = 1
+    SELECT * FROM (
+        SELECT
+            patient_id,
+            code,
+            ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
+        FROM {{ ref('base_visits_patient_ethnicity') }}
+    ) WHERE row_num = 1
 ),
 p_lang AS (
-SELECT * FROM (SELECT
-    patient_id,
-    code,
-    ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
-FROM {{ ref('base_visits_patient_language') }}
-) WHERE row_num = 1
+    SELECT * FROM (
+        SELECT
+            patient_id,
+            code,
+            ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
+        FROM {{ ref('base_visits_patient_language') }}
+    ) WHERE row_num = 1
 ),
 p_mar AS (
-SELECT * FROM (SELECT
-    patient_id,
-    code,
-    ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
-FROM {{ ref('base_visits_patient_marital') }}
-) WHERE row_num = 1
+    SELECT * FROM (
+        SELECT
+            patient_id,
+            code,
+            ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
+        FROM {{ ref('base_visits_patient_marital') }}
+    ) WHERE row_num = 1
 ),
 p_rac AS (
-SELECT * FROM (SELECT
-    patient_id,
-    code,
-    ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
-FROM {{ ref('base_visits_patient_race') }}
-) WHERE row_num = 1
+    SELECT * FROM (
+        SELECT
+            patient_id,
+            code,
+            ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY create_datetime DESC) AS row_num
+        FROM {{ ref('base_visits_patient_race') }}
+    ) WHERE row_num = 1
 ),
 all_pids AS (
     SELECT DISTINCT patient_id FROM (
