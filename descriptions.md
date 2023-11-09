@@ -26,4 +26,14 @@ Overall, ClickHouse is a powerful database solution for organizations that deal 
 # What is Airbyte?
 A powerful open-source tool for data integration that simplifies the process of collecting, transforming, and transferring data from various sources to multiple destinations. It provides flexibility, scalability, and ease of use, making it a valuable asset for businesses in managing their data integration needs.
 
+# What is DBT?
+DBT, which stands for Data Build Tool
+ - Open-source software tool used in the field of data engineering. 
+ - Designed to help you manage and transform your data in a structured and scalable manner.
+    - define and organize your data models (building blocks for your data pipelines)
+- Provides a set of features and functionalities that make it easier to create, test, and maintain your data models
+    - Incremental builds, which allow you to only update the parts of your data that have changed, making the process more efficient.
+- Promotes collaboration and reproducibility
+- Allows multiple data engineers to work on the same project concurrently, while ensuring that everyone is using the same set of rules and best practices. 
+    - This helps to reduce errors and inconsistencies in your data pipelines.
 
