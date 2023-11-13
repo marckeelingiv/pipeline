@@ -60,4 +60,8 @@
 
 # Possible Changes/Improvements
 - Swap out ClickHouse for DuckDB
-- improve dates in fake data
+- Improve dates in fake data
+- Set up notifications of failure
+
+# Link To Video Demo
+[Data Pipeline Implementation at Big Mountain Data and Dev Conference](https://youtu.be/coycGADJ5CQ)
