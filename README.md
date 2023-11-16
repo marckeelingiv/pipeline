@@ -11,19 +11,21 @@
     - .\env\Scripts\Activate.ps1
     - python -m pip install -r .\requirements.txt
 2. Turn on MySQL (3306), ClickHouse (8123), Airbyte (8000) (start generating data)
-    - python .\Chapter1\data_gen_and_seed.py (then wait for 5 min)
-    - docker compose -f .\DockerCompose.yaml up -d
-    - docker compose -f .\airbyte\DockerCompose_airbyte.yaml up -d
-3. Show Relational Diagram
-4. Show how the data is generated
-5. Show data in source
+    - python .\01_data_generation\data_gen_and_seed.py (then wait for 5 min)
+    - docker compose -f .\00_infrastructure\DockerCompose.yaml up -d
+    - docker compose -f .\00_infrastructure\airbyte\DockerCompose_airbyte.yaml up -d
+3. Show [Relational Diagram](./Table%20Structure.drawio)
+4. Show how the data is generated 
+    - [01_data_generation/DataGenClasses.py](./01_data_generation/DataGenClasses.py)
+    - [01_data_generation/data_gen_and_seed.py](./01_data_generation/data_gen_and_seed.py)
+5. Show data in source (connect to mysql using dbeaver)
 6. Create connection from Mysql to ClickHouse through Airbyte
     1. Talk About Enable binary logging on mysql
     2. describe what airbyte is
     2. describe what ClickHouse is
 
 # Chapter 2 (Organizing the Data)
-1. create the dbt repo
+1. create the dbt repo shown in [02_transformation](./02_transformation/)
     - dbt --version
     - dbt init dbt_visits
     - create sources.yml file
