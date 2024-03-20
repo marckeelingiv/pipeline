@@ -1,10 +1,10 @@
+pendulum==2.1.2
 pandas==2.2.1
 pymysql==1.1.0
 cryptography==42.0.5
 mysql-connector-python==8.3.0
 Faker==24.3.0
 dbt-clickhouse==1.7.3
-dagster==1.5.4
-dagster-airbyte==0.21.4
-dagster-dbt==0.10.9
-dagster-webserver==1.5.4
+dagster-airbyte==0.22.11
+dagster-dbt==0.22.11
+dagster-webserver==1.6.11
