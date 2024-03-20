@@ -36,3 +36,4 @@ models:
     # Config indicated by + and applies to all files under models/example/
     base:
       +materialized: view
+      +group: dbt_base_mysql
