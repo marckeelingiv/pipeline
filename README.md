@@ -35,6 +35,7 @@
     - `dbt init dbt_visits`
     - create profiles.yaml file
     - create sources.yml file
+    - add group to dbt_project.yml file
     - dbt debug
     - create base and intermediate folders
 2. dbt models
