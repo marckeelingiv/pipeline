@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "visits_dagster.definitions"
+code_location_name = "visits_dagster"
+
+dependencies = [
+    "dagster==1.6.11",
+    "dagster-webserver==1.6.11",
+    "dagster-dbt==0.22.11",
+    "dagster-airbyte==0.22.11",
+    "dbt-clickhouse==1.7.3",
+    "pyyaml==6.0.1",
+]
