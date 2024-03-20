@@ -41,6 +41,7 @@
 2. dbt models
     - create models
     - show documentation
+    - (optional)
     - patient attributes model (v1 & v2)
     - visits joined (v1 & v2)
 3. dbt tests
@@ -50,13 +51,21 @@
 
 # Chapter 3 (Orchestration)
 1. Create Dagster environment
-    - `dagster project scaffold-code-location --name my_dagster`
-1. Connect Airbyte to Dagster
-    - `pip install -e ".[dev]"`
-    - run dagster `$env:DAGSTER_DBT_PARSE_PROJECT_ON_LOAD = "1"; dagster dev`
+    - cd into dbt_visits
+    - `dagster-dbt project scaffold --project-name my_dagster`
+    - move my_dagster folder up one level `mv .\my_dagster\ ../`
+2. Connect dbt to Dagster
+    - change `dbt_project_dir = Path(__file__).joinpath("..", "..", "..").resolve()`
+    TO
+    `dbt_project_dir = Path('..','dbt_visits').resolve()`
+    - turn on dagster
+        - linux `DAGSTER_DBT_PARSE_PROJECT_ON_LOAD=1 dagster dev`
+        - windows `$env:DAGSTER_DBT_PARSE_PROJECT_ON_LOAD = "1"; dagster dev`
+    - now lets add more models to dbt and watch dagster pull them in
+3. Connect Airbyte to Dagster
     - Create an airbyte resource (https://docs.dagster.io/concepts/resources & https://docs.dagster.io/integrations/airbyte#using-airbyte-with-dagster)
 4. Set up report delivery schedules
-5. Set up Alerting
+5. (future task) Set up Alerting
 
 
 # Things not shown here
