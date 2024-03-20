@@ -1,5 +1,10 @@
 version: 2
 
+groups:
+  - name: dbt_base_mysql
+    owner:
+      name: dba
+
 sources:
   - name: visits
     schema: mysql_extracts
